@@ -1,5 +1,5 @@
 import React from 'react'
 
-const IndexPage = () => <h1>monts</h1>
+const IndexPage: React.FC = () => <h1>monts</h1>
 
 export default IndexPage
