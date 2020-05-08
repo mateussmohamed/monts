@@ -12,5 +12,9 @@ module.exports = {
 
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
 
-  transformIgnorePatterns: ['/node_modules/']
+  transformIgnorePatterns: ['/node_modules/'],
+
+  moduleNameMapper: {
+    '^@monts/(.*)$': '<rootDir>/src/$1'
+  }
 }
