@@ -1,35 +1,48 @@
-export default {
-  breakpoints: ['40em', '52em', '64em'],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+import merge from 'lodash.merge'
+import preset from '@rebass/preset'
+
+export default merge(preset, {
   colors: {
     primary: '#347AF0',
-    lightgray: '#CFD2D8'
+    green: '#75BF72',
+    red: '#DF5060',
+    yellow: '#FDB32A',
+    midnightBlue: '#0D1F3C',
+    darkGray: '#78839C',
+    gray: '#B5BBC9',
+    lightgray: '#CFD2D8',
+    darkBlue: '#3D4C63'
   },
-  space: [0, 4, 8, 16, 32, 64, 128, 256],
-  fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'inherit',
-    monospace: 'Menlo, monospace'
-  },
-  fontWeights: {
-    body: 400,
-    heading: 700,
-    bold: 700
-  },
-  lineHeights: {
-    body: 1.5,
-    heading: 1.25
-  },
-  shadows: {
-    small: '0 0 4px rgba(0, 0, 0, .125)',
-    large: '0 0 24px rgba(0, 0, 0, .125)'
-  },
-  variants: {},
-  text: {},
-  buttons: {
-    primary: {
-      color: 'white',
-      bg: 'primary'
+
+  forms: {
+    input: {
+      py: 1,
+      px: 1,
+      borderRadius: 0,
+      border: 0,
+      borderBottomWidth: '1px',
+      borderBottomStyle: 'solid',
+      borderBottomColor: 'lightgray',
+      color: 'darkBlue',
+      caretColor: '#347AF0',
+      lineHeight: '24px',
+
+      '::placeholder': {
+        color: 'midnightBlue'
+      },
+
+      '&:focus, &:active': {
+        outline: 0,
+        borderBottomColor: 'primary'
+      },
+
+      '&:disabled': {
+        color: 'lightgray'
+      }
+    },
+    label: {
+      color: 'gray',
+      px: 1
     }
   }
-}
+})
