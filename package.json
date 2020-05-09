@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
