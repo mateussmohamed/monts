@@ -8,12 +8,16 @@ export default merge(preset, {
     red: '#DF5060',
     yellow: '#FDB32A',
     midnightBlue: '#0D1F3C',
-    darkGray: '#78839C',
+    white: '#ffffff',
     gray: '#B5BBC9',
+    darkGray: '#3D4C63',
     lightgray: '#CFD2D8',
-    darkBlue: '#3D4C63'
+    darkBlue: '#3D4C63',
+    lightBlue: '#EDF1F9'
   },
-
+  fontWeights: {
+    semi: 600
+  },
   forms: {
     input: {
       py: 1,
@@ -43,6 +47,41 @@ export default merge(preset, {
     label: {
       color: 'gray',
       px: 1
+    }
+  },
+  buttons: {
+    primary: {
+      fontSize: 2,
+      py: 3,
+      px: 4,
+      minWidth: 120,
+      borderRadius: 32,
+      fontWeight: 'semi',
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: 'primary'
+    },
+    ghost: {
+      variant: 'buttons.primary',
+      bg: 'white',
+      color: 'primary'
+    },
+    white: {
+      variant: 'buttons.primary',
+      bg: 'white',
+      color: 'primary',
+      borderColor: 'white'
+    },
+    positive: {
+      variant: 'buttons.primary',
+      bg: 'green',
+      color: 'white',
+      borderColor: 'green'
+    },
+    negative: {
+      variant: 'buttons.positive',
+      bg: 'red',
+      borderColor: 'red'
     }
   }
 })
