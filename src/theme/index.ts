@@ -15,8 +15,17 @@ export default merge(preset, {
     darkBlue: '#3D4C63',
     lightBlue: '#EDF1F9'
   },
+  fonts: {
+    body: 'Titillium Web, sans-serif',
+    heading: 'Titillium Web',
+    monospace: 'Titillium Web, monospace'
+  },
+  fontSizes: [12, 14, 16, 19, 20, 24, 32, 48, 64, 96],
   fontWeights: {
-    semi: 600
+    light: 300,
+    normal: 400,
+    semi: 600,
+    bold: 700
   },
   forms: {
     input: {
@@ -30,6 +39,8 @@ export default merge(preset, {
       color: 'darkBlue',
       caretColor: '#347AF0',
       lineHeight: '24px',
+      fontWeight: 'normal',
+      fontSize: 19,
 
       '::placeholder': {
         color: 'midnightBlue'
@@ -59,7 +70,8 @@ export default merge(preset, {
       fontWeight: 'semi',
       borderWidth: 1,
       borderStyle: 'solid',
-      borderColor: 'primary'
+      borderColor: 'primary',
+      fontFamily: 'body'
     },
     ghost: {
       variant: 'buttons.primary',
