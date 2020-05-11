@@ -1,8 +1,8 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC } from 'react'
 import { Box, Text } from 'rebass/styled-components'
-import { Label, Input } from '@rebass/forms/styled-components'
+import { Label, Input, InputProps } from '@rebass/forms/styled-components'
 
-interface Props extends HTMLAttributes<HTMLElement> {
+interface Props extends InputProps {
   label: string
   value?: string
   status?: string
@@ -17,13 +17,14 @@ const Field: FC<Props> = ({
   defaultValue,
   value,
   message,
+  type,
   status = 'primary',
   placeholder = 'Your text goes here'
 }) => {
   const hasError = status === 'error'
 
   return (
-    <Box width={1} px={2}>
+    <Box width={1} px={2} mb={3}>
       <Label htmlFor="name">{label}</Label>
       <Input
         data-testid="ms-field"
@@ -31,6 +32,7 @@ const Field: FC<Props> = ({
         disabled={disabled}
         defaultValue={defaultValue}
         value={value}
+        type={type}
         id={id}
         name={id}
         mb={1}
