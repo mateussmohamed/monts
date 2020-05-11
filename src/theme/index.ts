@@ -40,10 +40,10 @@ export default merge(preset, {
       caretColor: '#347AF0',
       lineHeight: '24px',
       fontWeight: 'normal',
-      fontSize: 19,
+      fontSize: 4,
 
       '::placeholder': {
-        color: 'midnightBlue'
+        color: 'lightGray'
       },
 
       '&:focus, &:active': {
@@ -56,14 +56,15 @@ export default merge(preset, {
       }
     },
     label: {
+      fontWeight: 'semi',
       color: 'gray',
       px: 1
     }
   },
   buttons: {
     primary: {
-      fontSize: 2,
-      py: 3,
+      fontSize: 4,
+      py: 2,
       px: 4,
       minWidth: 120,
       borderRadius: 32,
@@ -94,6 +95,14 @@ export default merge(preset, {
       variant: 'buttons.positive',
       bg: 'red',
       borderColor: 'red'
+    }
+  },
+  variants: {
+    containerForm: {
+      bg: 'white',
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      p: 20
     }
   }
 })
