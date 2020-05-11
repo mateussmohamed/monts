@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
 import theme from '@monts/theme'
+import GlobalStyle from '@monts/styles/global'
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -32,6 +33,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <link rel="icon" sizes="512x512" href="/icon-512.png" />
         <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png" />
       </Head>
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

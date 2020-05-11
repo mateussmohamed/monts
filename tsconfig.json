@@ -21,9 +21,11 @@
     "target": "esnext",
     "module": "esnext",
     "paths": {
-      "@monts/*": ["src/*"]
+      "@monts/*": ["src/*"],
+      "rebass/styled-components": ["node_modules/@types/rebass"],
+      "@rebass/forms/styled-components": ["node_modules/@types/rebass__forms"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "build"]
+  "exclude": ["node_modules", "build", "./src/**/*.test.tsx"],
+  "include": ["next-env.d.ts", "./src/**/*"]
 }
