@@ -20,7 +20,7 @@ export default merge(preset, {
     heading: 'Titillium Web',
     monospace: 'Titillium Web, monospace'
   },
-  fontSizes: [12, 14, 16, 19, 20, 24, 32, 48, 64, 96],
+  fontSizes: [12, 14, 16, 18, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     light: 300,
     normal: 400,
@@ -72,7 +72,12 @@ export default merge(preset, {
       borderWidth: 1,
       borderStyle: 'solid',
       borderColor: 'primary',
-      fontFamily: 'body'
+      fontFamily: 'body',
+
+      '&:disabled': {
+        bg: 'lightgray',
+        borderColor: 'lightgray'
+      }
     },
     ghost: {
       variant: 'buttons.primary',
