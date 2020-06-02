@@ -8,7 +8,7 @@ interface Props {
   loading?: boolean
 }
 
-function AuthScreen({ children, title, image, loading }: Props): JSX.Element {
+function AuthScreen({ children, title, image }: Props): JSX.Element {
   return (
     <Box bg="lightBlue" height="100vh">
       <Box width={1} maxWidth={512} mx="auto" pt={20}>

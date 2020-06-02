@@ -1,6 +1,6 @@
 import unfectch from 'isomorphic-unfetch'
 
-export default async function fetcher(...args: unfectch.IsomorphicRequest) {
+export default async function fetcher(...args: unfectch.IsomorphicRequest): Promise<unknown> {
   try {
     const response = await unfectch(...args)
 

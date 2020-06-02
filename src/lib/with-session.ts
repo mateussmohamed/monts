@@ -1,7 +1,7 @@
 // this file is a wrapper with defaults to be used in both API routes and `getServerSideProps` functions
 import { withIronSession } from 'next-iron-session'
 
-function withSession(handler: Handler): (...args: any[]) => Promise<any> {
+function withSession(handler: Handler): (...args: unknown[]) => Promise<unknown> {
   return withIronSession(handler, {
     password: process.env.SECRET_COOKIE_PASSWORD || 'SECRET_COOKIE_PASSWORD',
     cookieName: 'monts',

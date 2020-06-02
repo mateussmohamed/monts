@@ -24,6 +24,6 @@ declare type NextApiRequestWithSession = NextApiRequest & {
   session: Session
 }
 
-declare type Handler = (req: NextApiRequestWithSession, res: NextApiResponse) => any
+declare type Handler = (req: NextApiRequestWithSession, res: NextApiResponse) => Promise<void>
 
 declare type SubmitForm = (data: FieldValues) => void

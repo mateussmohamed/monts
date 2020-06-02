@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Box, Text } from 'rebass/styled-components'
 import { Label, Input, InputProps } from '@rebass/forms/styled-components'
-import { useFormContext, ErrorMessage, FieldErrors, FieldValues } from 'react-hook-form'
+import { useFormContext, ErrorMessage } from 'react-hook-form'
 
 interface Props extends InputProps {
   label: string

@@ -9,7 +9,7 @@ type Options = {
 
 type useUserHook = {
   user: User
-  mutateUser: any
+  mutateUser: () => Promise<unknown | undefined>
 }
 
 function useUser({ redirectTo = '', redirectIfFound = false }: Options = {}): useUserHook {

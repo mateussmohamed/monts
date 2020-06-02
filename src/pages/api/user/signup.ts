@@ -22,17 +22,17 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
       return res.status(409).json({ error: 'Usuário já cadastrado.' })
     }
 
-    // const salt = bcrypt.genSaltSync()
-    // const hash = bcrypt.hashSync(body.password, salt)
+    const salt = bcrypt.genSaltSync()
+    const hash = bcrypt.hashSync(body.password, salt)
 
-    // const savedUser = await prisma.user.create({
-    //   data: {
-    //     ...body,
-    //     password: hash
-    //   }
-    // })
+    const savedUser = await prisma.user.create({
+      data: {
+        ...body,
+        password: hash
+      }
+    })
 
-    // res.status(200).json({ data: omit(savedUser, ['password']) })
+    res.status(200).json({ data: omit(savedUser, ['password']) })
   } catch (error) {
     console.log(error)
     return res.status(409).json({ error: 'Internal Error' })
