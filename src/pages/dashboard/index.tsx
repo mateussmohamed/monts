@@ -9,7 +9,7 @@ function Dashboard(): JSX.Element {
   const { mutateUser } = useUser({ redirectTo: '/login' })
 
   async function handleLogout() {
-    await mutateUser(fetcher('/api/auth/logout'))
+    await mutateUser(fetcher({ url: '/api/auth/logout' }))
   }
 
   return (

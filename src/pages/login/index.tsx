@@ -26,14 +26,17 @@ function Login(): JSX.Element {
   async function onSubmit(formData: FieldValues): Promise<void> {
     try {
       await mutateUser(
-        fetcher('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+        fetcher({
+          url: '/api/auth/login',
+          options: {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          }
         })
       )
     } catch (error) {
-      toast.error(error.data)
+      toast.error(error.message)
     }
   }
 

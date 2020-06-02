@@ -24,9 +24,12 @@ function SignUp(): JSX.Element {
 
   async function onSubmit(formData: FieldValues): Promise<void> {
     try {
-      const response = await fetcher('/api/user/signup', {
-        method: 'POST',
-        body: JSON.stringify(formData)
+      const response = await fetcher({
+        url: '/api/user/signup',
+        options: {
+          method: 'POST',
+          body: JSON.stringify(formData)
+        }
       })
 
       if (response.data) {
@@ -37,7 +40,7 @@ function SignUp(): JSX.Element {
         toast.error(response.error)
       }
     } catch (error) {
-      toast.error(error.data)
+      toast.error(error.message)
     }
   }
 

@@ -9,7 +9,7 @@ type Options = {
 
 type useUserHook = {
   user: User
-  mutateUser: () => Promise<unknown | undefined>
+  mutateUser: (cb: Promise<Record<string, Record<string, unknown>>>) => Promise<unknown | undefined>
 }
 
 function useUser({ redirectTo = '', redirectIfFound = false }: Options = {}): useUserHook {

@@ -1,8 +1,12 @@
 import unfectch from 'isomorphic-unfetch'
 
-export default async function fetcher(...args: unfectch.IsomorphicRequest): Promise<unknown> {
+type Params = {
+  url: string
+  options?: Record<string, unknown> | undefined
+}
+export default async function fetcher({ url, options }: Params): Promise<Record<string, Record<string, unknown>>> {
   try {
-    const response = await unfectch(...args)
+    const response = await unfectch(url, options)
 
     // if the server replies, there's always some data in json
     // if there's a network error, it will throw at the previous line
@@ -13,8 +17,7 @@ export default async function fetcher(...args: unfectch.IsomorphicRequest): Prom
     }
 
     const errorInstance = new Error(response.statusText)
-    errorInstance.response = response
-    errorInstance.data = error
+    errorInstance.message = error
 
     throw errorInstance
   } catch (error) {
