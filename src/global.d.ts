@@ -14,3 +14,16 @@ declare type Wallet = {
   userId: string
   balance: number
 }
+
+declare interface ResponseApi {
+  data?: Record<string, unknown>
+  error?: string
+}
+
+declare type NextApiRequestWithSession = NextApiRequest & {
+  session: Session
+}
+
+declare type Handler = (req: NextApiRequestWithSession, res: NextApiResponse) => any
+
+declare type SubmitForm = (data: FieldValues) => void
