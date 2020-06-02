@@ -10,20 +10,20 @@ interface Props {
 
 function AuthScreen({ children, title, image, loading }: Props): JSX.Element {
   return (
-    <Flex bg="lightBlue" flexDirection="column" alignItems="center" height="100vh">
-      <Box width={1} pt={20}>
+    <Box bg="lightBlue" height="100vh">
+      <Box width={1} maxWidth={512} mx="auto" pt={20}>
         <Flex flexDirection="column" alignItems="center">
           <Heading color="midnightBlue" textAlign="center" fontWeight="semi" mb={90} fontSize={[26, 32]}>
             {title}
           </Heading>
           <Image src={image} width={310} />
         </Flex>
-      </Box>
 
-      <Box flex={1} width={1} pt={20} pb={60} variant="containerForm">
-        {children}
+        <Box flex={1} width={1} pt={20} pb={60} variant="containerForm">
+          {children}
+        </Box>
       </Box>
-    </Flex>
+    </Box>
   )
 }
 
