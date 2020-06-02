@@ -6,7 +6,7 @@ const nextConfig = {
     ignoreDevErrors: true
   },
   transformManifest: (manifest) => ['/'].concat(manifest),
-  generateInDevMode: true,
+  generateInDevMode: false,
   workboxOpts: {
     swDest: 'public/service-worker.js',
     runtimeCaching: [
