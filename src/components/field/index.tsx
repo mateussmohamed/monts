@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Box, Text } from 'rebass/styled-components'
 import { Label, Input, InputProps } from '@rebass/forms/styled-components'
-import { ErrorMessage, FieldErrors, FieldValues } from 'react-hook-form'
+import { useFormContext, ErrorMessage, FieldErrors, FieldValues } from 'react-hook-form'
 
 interface Props extends InputProps {
   label: string
@@ -12,9 +12,7 @@ interface Props extends InputProps {
   status?: string
   placeholder?: string
   disabled?: boolean
-  register: Function
-
-  errors: FieldErrors<FieldValues>
+  validate?: Record<string, unknown>
 }
 
 const Field: FC<Props> = ({
@@ -22,19 +20,19 @@ const Field: FC<Props> = ({
   label,
   disabled,
   value,
-  errors,
-  register,
+  validate,
   defaultValue = '',
   type = 'text',
   placeholder = 'Your text goes here'
 }) => {
-  const hasError = errors[name]
+  const { register, errors } = useFormContext()
+  const hasError = errors[name] || false
 
   return (
     <Box width={1} px={2} mb={3}>
       <Label htmlFor="name">{label}</Label>
       <Input
-        ref={register}
+        ref={register({ ...validate })}
         placeholder={placeholder}
         disabled={disabled}
         defaultValue={defaultValue}
