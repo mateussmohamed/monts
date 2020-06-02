@@ -20,5 +20,16 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "SECRET_COOKIE_PASSWORD": "i728RPBapcqWLmjggjNG3cpzBjGsZPT3"
+  },
+  "build": {
+    "env": {
+      "SECRET_COOKIE_PASSWORD": "i728RPBapcqWLmjggjNG3cpzBjGsZPT3"
+    }
+  },
+  "github": {
+    "silent": true
+  }
 }
