@@ -1,10 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Button } from 'rebass/styled-components'
 
 import { Flex, Box, Image, Text, Heading } from 'rebass/styled-components'
-
-import Button from '@monts/components/button'
 
 function Welcome(): JSX.Element {
   const router = useRouter()
