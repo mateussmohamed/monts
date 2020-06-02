@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "@prisma/client": "^2.0.0-beta.7",
+    "@prisma/client": "^2.0.0-beta.6",
     "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "bcrypt": "^4.0.1",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
-    "@prisma/cli": "^2.0.0-beta.7",
+    "@prisma/cli": "^2.0.0-beta.6",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.19",
