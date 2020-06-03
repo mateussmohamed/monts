@@ -11,7 +11,10 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "save": "prisma migrate save --experimental",
+    "up": "prisma migrate up --experimental",
+    "generate": "prisma generate"
   },
   "husky": {
     "hooks": {
