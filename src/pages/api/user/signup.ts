@@ -1,41 +1,49 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from 'bcrypt'
 
+import { INITIAL_AMOUNT_BALANCE, BRL_ID } from '@monts/constants'
 import prisma from '@monts/lib/prisma'
 import omit from '@monts/utils/omit'
 
 async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {
-    const body: User = req.body
+    const userReq: User = JSON.parse(req.body)
 
-    console.log({ body })
-
-    const user = await prisma.user.findOne({
+    const userFound = await prisma.user.findOne({
       where: {
-        email: 'lunamontemor@gmail.com'
+        email: userReq.email
       }
     })
 
-    console.log({ user })
-
-    if (user) {
+    if (userFound) {
       return res.status(409).json({ error: 'Usuário já cadastrado.' })
     }
 
     const salt = bcrypt.genSaltSync()
-    const hash = bcrypt.hashSync(body.password, salt)
+    const hash = bcrypt.hashSync(userReq.password, salt)
 
     const savedUser = await prisma.user.create({
       data: {
-        ...body,
-        password: hash
+        ...userReq,
+        password: hash,
+        wallet: {
+          create: [
+            {
+              balance: INITIAL_AMOUNT_BALANCE,
+              currency: {
+                connect: {
+                  id: BRL_ID
+                }
+              }
+            }
+          ]
+        }
       }
     })
 
     res.status(200).json({ data: omit(savedUser, ['password']) })
   } catch (error) {
-    console.log(error)
-    return res.status(409).json({ error: 'Internal Error' })
+    return res.status(500).json({ error: 'Internal Error' })
   }
 }
 
