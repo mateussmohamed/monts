@@ -9,7 +9,7 @@ import { SWRConfig } from 'swr'
 
 import theme from '@monts/theme'
 import GlobalStyle from '@monts/styles/global'
-import fetcher from '@monts/lib/unfetch'
+import fetch from '@monts/lib/fetch'
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -54,7 +54,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
 
         <SWRConfig
           value={{
-            fetcher,
+            fetcher: fetch,
             onError: (err) => {
               console.error(err)
             }

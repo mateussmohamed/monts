@@ -10,7 +10,7 @@ import AuthScreen from '@monts/components/auth-layout'
 import Form from '@monts/components/form'
 import Field from '@monts/components/field'
 
-import fetcher from '@monts/lib/unfetch'
+import fetch from '@monts/lib/fetch'
 
 const signUpSchema = yup.object().shape({
   firstName: yup.string().required('este campo é obrigatório..'),
@@ -24,12 +24,9 @@ function SignUp(): JSX.Element {
 
   async function onSubmit(formData: FieldValues): Promise<void> {
     try {
-      const response = await fetcher({
-        url: '/api/user/signup',
-        options: {
-          method: 'POST',
-          body: JSON.stringify(formData)
-        }
+      const response = await fetch('/api/user/signup', {
+        method: 'POST',
+        body: JSON.stringify(formData)
       })
 
       if (response.data) {

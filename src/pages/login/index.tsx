@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { FieldValues } from 'react-hook-form'
 import { Flex, Text, Button } from 'rebass/styled-components'
 
-import fetcher from '@monts/lib/unfetch'
+import fetch from '@monts/lib/fetch'
 import useUser from '@monts/hooks/use-user'
 
 import Form from '@monts/components/form'
@@ -26,13 +26,10 @@ function Login(): JSX.Element {
   async function onSubmit(formData: FieldValues): Promise<void> {
     try {
       await mutateUser(
-        fetcher({
-          url: '/api/auth/login',
-          options: {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          }
+        fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
         })
       )
     } catch (error) {
