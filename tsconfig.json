@@ -6,8 +6,11 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "lib": ["dom", "es2017"],
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "moduleResolution": "node",
     "removeComments": true,
     "noEmit": true,
@@ -21,11 +24,24 @@
     "target": "esnext",
     "module": "esnext",
     "paths": {
-      "@monts/*": ["src/*"],
-      "rebass/styled-components": ["node_modules/@types/rebass"],
-      "@rebass/forms/styled-components": ["node_modules/@types/rebass__forms"]
+      "@monts/*": [
+        "src/*"
+      ],
+      "rebass/styled-components": [
+        "node_modules/@types/rebass"
+      ],
+      "@rebass/forms/styled-components": [
+        "node_modules/@types/rebass__forms"
+      ]
     }
   },
-  "exclude": ["node_modules", "build", "./src/**/*.test.tsx"],
-  "include": ["next-env.d.ts", "./src/**/*"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "./src/**/*.test.tsx"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "./src/**/*"
+  ]
 }

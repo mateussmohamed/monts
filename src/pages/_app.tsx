@@ -1,10 +1,15 @@
+import 'react-toastify/dist/ReactToastify.css'
+
 import React from 'react'
-import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProps } from 'next/app'
+import { ToastContainer } from 'react-toastify'
 import { ThemeProvider } from 'styled-components'
+import { SWRConfig } from 'swr'
 
 import theme from '@monts/theme'
 import GlobalStyle from '@monts/styles/global'
+import fetch from '@monts/lib/fetch'
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -35,7 +40,28 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          draggable={false}
+          hideProgressBar
+          pauseOnFocusLoss
+          pauseOnHover
+        />
+
+        <SWRConfig
+          value={{
+            fetcher: fetch,
+            onError: (err) => {
+              console.error(err)
+            }
+          }}
+        >
+          <Component {...pageProps} />
+        </SWRConfig>
       </ThemeProvider>
     </>
   )

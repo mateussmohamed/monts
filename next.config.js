@@ -1,9 +1,12 @@
 const withOffline = require('next-offline') //  eslint-disable-line
 
 const nextConfig = {
-  target: 'serverless',
+  target: 'server',
+  typescript: {
+    ignoreDevErrors: true
+  },
   transformManifest: (manifest) => ['/'].concat(manifest),
-  generateInDevMode: true,
+  generateInDevMode: false,
   workboxOpts: {
     swDest: 'public/service-worker.js',
     runtimeCaching: [

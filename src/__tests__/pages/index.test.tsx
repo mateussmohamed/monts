@@ -7,6 +7,6 @@ describe('[Pages - Index]', () => {
   it('should render a index page with "monts"', () => {
     const { getByText } = render(<IndexPage />)
 
-    expect(getByText('monts')).toBeInTheDocument()
+    expect(getByText('Bem vindo a')).toBeInTheDocument()
   })
 })

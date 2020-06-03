@@ -1,40 +1,45 @@
 import React, { FC } from 'react'
 import { Box, Text } from 'rebass/styled-components'
 import { Label, Input, InputProps } from '@rebass/forms/styled-components'
+import { useFormContext, ErrorMessage } from 'react-hook-form'
 
 interface Props extends InputProps {
   label: string
+  name: string
+  type?: string
   value?: string
+  defaultValue?: string
   status?: string
-  message?: string
+  placeholder?: string
   disabled?: boolean
+  validate?: Record<string, unknown>
 }
 
 const Field: FC<Props> = ({
-  id,
+  name,
   label,
   disabled,
-  defaultValue,
   value,
-  message,
-  type,
-  status = 'primary',
+  validate,
+  defaultValue = '',
+  type = 'text',
   placeholder = 'Your text goes here'
 }) => {
-  const hasError = status === 'error'
+  const { register, errors } = useFormContext()
+  const hasError = errors[name] || false
 
   return (
     <Box width={1} px={2} mb={3}>
       <Label htmlFor="name">{label}</Label>
       <Input
-        data-testid="ms-field"
+        ref={register({ ...validate })}
         placeholder={placeholder}
         disabled={disabled}
         defaultValue={defaultValue}
         value={value}
         type={type}
-        id={id}
-        name={id}
+        id={name}
+        name={name}
         mb={1}
         sx={{
           borderBottomColor: hasError ? 'red' : 'lightGray',
@@ -43,12 +48,16 @@ const Field: FC<Props> = ({
           }
         }}
       />
-      {message && (
-        <Text px={1} fontSize={1} color={hasError ? 'red' : 'darkGray'}>
-          {message}
-        </Text>
-      )}
+
+      <ErrorMessage errors={errors} name={name}>
+        {({ message }): JSX.Element => (
+          <Text px={1} fontSize={1} color={hasError ? 'red' : 'darkGray'}>
+            {message}
+          </Text>
+        )}
+      </ErrorMessage>
     </Box>
   )
 }
+
 export default Field
