@@ -8,10 +8,10 @@ async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Pro
     const user = req.session.get('user')
 
     if (user) {
-      return res.status(200).json({ data: { isLoggedIn: true, ...omit(user, ['password']) } })
+      return res.status(200).json({ isLoggedIn: true, ...omit(user, ['password']) })
     }
 
-    return res.status(200).json({ data: { isLoggedIn: false } })
+    return res.status(200).json({ isLoggedIn: false })
   } catch (error) {
     res.status(500).json({ error: 'Internal Error' })
   }

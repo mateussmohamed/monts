@@ -41,7 +41,7 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
       }
     })
 
-    res.status(200).json({ data: omit(savedUser, ['password']) })
+    res.status(200).json(omit(savedUser, ['password']))
   } catch (error) {
     return res.status(500).json({ error: 'Internal Error' })
   }

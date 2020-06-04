@@ -27,7 +27,7 @@ async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Pro
 
       await req.session.save()
 
-      return res.status(200).json({ data: userSession })
+      return res.status(200).json(userSession)
     }
 
     return res.status(400).json({ error: 'Usuário inválido.' })

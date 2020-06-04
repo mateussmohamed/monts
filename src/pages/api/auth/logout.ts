@@ -6,7 +6,7 @@ async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Pro
   try {
     req.session.destroy()
 
-    return res.status(200).json({ data: { isLoggedIn: false } })
+    return res.status(200).json({ isLoggedIn: false })
   } catch (error) {
     res.status(500).json({ error: 'Internal Error' })
   }
