@@ -24,17 +24,17 @@ function SignUp(): JSX.Element {
 
   async function onSubmit(formData: FieldValues): Promise<void> {
     try {
-      const response = await fetch('/api/user/signup', {
+      const data = await fetch('/api/user/signup', {
         method: 'POST',
         body: JSON.stringify(formData)
       })
 
-      if (response.data) {
+      console.log({ data })
+
+      if (data) {
         toast.success('User registered')
 
         router.push('/login')
-      } else {
-        toast.error(response.error)
       }
     } catch (error) {
       toast.error(error.message)

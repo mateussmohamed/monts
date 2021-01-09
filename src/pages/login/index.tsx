@@ -19,7 +19,7 @@ const signUpSchema = yup.object().shape({
 
 function Login(): JSX.Element {
   const { mutateUser } = useUser({
-    redirectTo: '/dashboard',
+    redirectTo: '/wallet',
     redirectIfFound: true
   })
 
