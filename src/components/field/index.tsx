@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { Box, Text } from 'rebass/styled-components'
 import { Label, Input, InputProps } from '@rebass/forms/styled-components'
-import { useFormContext, ErrorMessage } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
+import { ErrorMessage } from '@hookform/error-message'
 
 interface Props extends InputProps {
   label: string
@@ -49,13 +50,15 @@ const Field: FC<Props> = ({
         }}
       />
 
-      <ErrorMessage errors={errors} name={name}>
-        {({ message }): JSX.Element => (
+      <ErrorMessage
+        errors={errors}
+        name={name}
+        render={({ message }) => (
           <Text px={1} fontSize={1} color={hasError ? 'red' : 'darkGray'}>
             {message}
           </Text>
         )}
-      </ErrorMessage>
+      />
     </Box>
   )
 }
