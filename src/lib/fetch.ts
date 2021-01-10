@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 export default async function fetcher(
   url: string,
   options?: Record<string, unknown>
-): Promise<Record<string, Record<string, any>>> {
+): Promise<Record<string, Record<string, unknown>>> {
   try {
     const response = await fetch(url, options)
     const data = await response.json()
