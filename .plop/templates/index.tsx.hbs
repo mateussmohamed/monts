@@ -1,0 +1,11 @@
+import * as S from './styles'
+
+export type {{pascalCase name}}Props = {
+  title?: React.ReactNode
+}
+
+function {{pascalCase name}}({ title = '{{pascalCase name}}' }: {{pascalCase name}}Props) {
+  return <S.Wrapper>{title}</S.Wrapper>
+}
+
+export default {{pascalCase name}}
