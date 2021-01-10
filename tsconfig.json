@@ -1,32 +1,20 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "moduleResolution": "node",
-    "removeComments": true,
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "paths": {
-      "@monts/*": [
-        "src/*"
-      ],
       "rebass/styled-components": [
         "node_modules/@types/rebass"
       ],
@@ -35,13 +23,6 @@
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "./src/**/*.test.tsx"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "./src/**/*"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
