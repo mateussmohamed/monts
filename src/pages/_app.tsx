@@ -7,9 +7,9 @@ import { ToastContainer } from 'react-toastify'
 import { ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
 
-import theme from '@monts/theme'
-import GlobalStyle from '@monts/styles/global'
-import fetch from '@monts/lib/fetch'
+import theme from 'styles/theme'
+import GlobalStyle from 'styles/global'
+import fetch from 'lib/fetch'
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (

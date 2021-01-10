@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next'
 
-import { MERCADO_BITCOIN_API } from '@monts/constants'
-import fetch from '@monts/lib/fetch'
+import { MERCADO_BITCOIN_API } from 'constants'
+import fetch from 'lib/fetch'
 
 async function handle(_req: unknown, res: NextApiResponse): Promise<void> {
   try {
