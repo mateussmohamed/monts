@@ -1,12 +1,23 @@
-import { addDecorator } from '@storybook/react'
+import React from 'react'
+import { RouterContext } from 'next/dist/next-server/lib/router-context'
 import { ThemeProvider } from 'styled-components'
 
-import theme from '../src/theme'
-import GlobalStyle from '../src/styles/global'
+import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
 
-addDecorator((storyfn) => (
-  <>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>{storyfn()}</ThemeProvider>
-  </>
-))
+export const decorators = [
+  (Story) => (
+    <RouterContext.Provider
+      value={{
+        push: () => Promise.resolve(),
+        replace: () => Promise.resolve(),
+        prefetch: () => Promise.resolve()
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Story />
+      </ThemeProvider>
+    </RouterContext.Provider>
+  )
+]
