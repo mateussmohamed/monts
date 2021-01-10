@@ -1,14 +1,14 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass/styled-components'
 
-type TransactionItem = {
+export type TransactionItemProps = {
   kind: 'Withdrawn' | 'Deposited' | 'Sent'
   currencyValue: string
   cryptoValue: string
   date: string
 }
 
-function TransactionItem({ kind, currencyValue, cryptoValue, date }: TransactionItem): JSX.Element {
+function TransactionItem({ kind, currencyValue, cryptoValue, date }: TransactionItemProps): JSX.Element {
   return (
     <Flex
       flex={1}
