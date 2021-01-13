@@ -1,14 +1,16 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass/styled-components'
 
+type TransactionKinds = 'withdrawn' | 'deposited' | 'sent'
+
 export type TransactionItemProps = {
-  kind: 'Withdrawn' | 'Deposited' | 'Sent'
+  kind: TransactionKinds
   currencyValue: string
   cryptoValue: string
   date: string
 }
 
-function TransactionItem({ kind, currencyValue, cryptoValue, date }: TransactionItemProps): JSX.Element {
+function TransactionItem({ kind, currencyValue, cryptoValue, date }: TransactionItemProps) {
   return (
     <Flex
       flex={1}
@@ -23,8 +25,16 @@ function TransactionItem({ kind, currencyValue, cryptoValue, date }: Transaction
       sx={{ borderRadius: 30, boxShadow: '0px 2px 3px 0px rgba(20, 70, 150, 0.15)' }}
     >
       <Box mr={20}>
-        {kind === 'Withdrawn' && (
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {kind === 'withdrawn' && (
+          <svg
+            aria-label="Withdrawn Money"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -45,8 +55,16 @@ function TransactionItem({ kind, currencyValue, cryptoValue, date }: Transaction
           </svg>
         )}
 
-        {kind === 'Deposited' && (
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {kind === 'deposited' && (
+          <svg
+            aria-label="deposited money"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -67,8 +85,16 @@ function TransactionItem({ kind, currencyValue, cryptoValue, date }: Transaction
           </svg>
         )}
 
-        {kind === 'Sent' && (
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {kind === 'sent' && (
+          <svg
+            aria-label="sent money"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            role="img"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fillRule="evenodd"
               clipRule="evenodd"

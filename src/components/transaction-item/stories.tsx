@@ -4,12 +4,7 @@ import TransactionItem, { TransactionItemProps } from '.'
 
 export default {
   title: 'TransactionItem',
-  component: TransactionItem,
-  argTypes: {
-    date: {
-      type: 'date'
-    }
-  }
+  component: TransactionItem
 } as Meta
 
 export const Default: Story<TransactionItemProps> = (args) => (
@@ -19,7 +14,7 @@ export const Default: Story<TransactionItemProps> = (args) => (
 )
 
 Default.args = {
-  kind: 'Withdrawn',
+  kind: 'withdrawn',
   currencyValue: '$ 204',
   cryptoValue: '0.021 BTC',
   date: 'Aug 19, 2019'
