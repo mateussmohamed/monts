@@ -9,7 +9,7 @@ async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Pro
   try {
     const { email, password } = req.body
 
-    const user = await prisma.user.findOne({
+    const user = await prisma.user.findFirst({
       where: {
         email: email
       }
@@ -33,6 +33,8 @@ async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Pro
     return res.status(400).json({ error: 'Usuário inválido.' })
   } catch (error) {
     res.status(500).json({ error: 'Internal Error' })
+  } finally {
+    await prisma.$disconnect()
   }
 }
 

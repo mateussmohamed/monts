@@ -27,3 +27,15 @@ declare type NextApiRequestWithSession = NextApiRequest & {
 declare type Handler = (req: NextApiRequestWithSession, res: NextApiResponse) => Promise<void>
 
 declare type SubmitForm = (data: FieldValues) => void
+
+declare type OlindaPayload = {
+  cotacaoCompra: number
+  cotacaoVenda: number
+  dataHoraCotacao: string
+}
+
+declare type OlindaResponse = {
+  buy: number
+  sell: number
+  date: string
+}

@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        Int      @default(autoincrement()) @id
+  id        Int      @id @default(autoincrement())
   email     String   @unique
   firstName String
   lastName  String
@@ -17,16 +17,16 @@ model User {
 }
 
 model Wallet {
-  id         String    @default(uuid()) @unique
-  balance    Float
-  user       User?     @relation(fields: [userId], references: [id])
+  id         Int       @id @default(autoincrement())
+  balance    Float?
+  currencyId Int?
   userId     Int?
   currency   Currency? @relation(fields: [currencyId], references: [id])
-  currencyId Int?
+  user       User?     @relation(fields: [userId], references: [id])
 }
 
 model Currency {
-  id           Int      @default(autoincrement()) @id
+  id           Int      @id @default(autoincrement())
   name         String
   abbreviation String   @unique
   Wallet       Wallet[]
