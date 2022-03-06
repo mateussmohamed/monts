@@ -1,14 +1,14 @@
 import React from 'react'
 import { Flex, Box, Image, Heading } from 'rebass/styled-components'
 
-interface Props {
-  children: React.ReactElement
+type AuthScreenProps = {
+  children: React.ReactNode
   title: string
   image: string
   loading?: boolean
 }
 
-function AuthScreen({ children, title, image }: Props): JSX.Element {
+function AuthScreen({ children, title, image }: AuthScreenProps) {
   return (
     <Box bg="lightBlue" height="100vh">
       <Box width={1} maxWidth={512} mx="auto" pt={20}>

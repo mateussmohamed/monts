@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next'
-import withSession from '@monts/lib/with-session'
+import withSession from 'lib/with-session'
 
-import omit from '@monts/utils/omit'
+import omit from 'utils/omit'
 
 async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Promise<void> {
   try {

@@ -1,15 +1,4 @@
-type OlindaPayload = {
-  cotacaoCompra: number
-  cotacaoVenda: number
-  dataHoraCotacao: string
-}
-
-type OlindaParsed = {
-  buy: number
-  sell: number
-  date: string
-}
-export default function parseOlindaPayload(value: OlindaPayload): OlindaParsed {
+export default function parseOlindaPayload(value: OlindaPayload): OlindaResponse {
   return {
     buy: value.cotacaoCompra,
     sell: value.cotacaoVenda,

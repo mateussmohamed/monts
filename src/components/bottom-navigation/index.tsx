@@ -2,39 +2,9 @@ import React from 'react'
 import { Flex, Text } from 'rebass/styled-components'
 import { Plus as PlusIcon, Box as BoxIcon, Minimize2 as MinimizeIcon } from 'react-feather'
 
-type BottomNavigationText = {
-  children: React.ReactNode
-}
+import { BottomNavigationItem } from './styles'
 
-const BottomNavigationText: React.FC<BottomNavigationText> = ({ children }) => (
-  <Text fontSize={12} lineHeight="24px" mt={1} fontWeight="light" color="#78839C">
-    {children}
-  </Text>
-)
-
-type BottomNavigationItem = {
-  children: React.ReactNode
-}
-
-const BottomNavigationItem: React.FC<BottomNavigationItem> = ({ children }) => (
-  <Flex
-    as="button"
-    mx={2}
-    px={4}
-    flexDirection="column"
-    justifyContent="center"
-    alignItems="center"
-    sx={{
-      border: 0,
-      outline: 0,
-      cursor: 'pointer'
-    }}
-  >
-    {children}
-  </Flex>
-)
-
-function BottomNavigation(): JSX.Element {
+function BottomNavigation() {
   return (
     <Flex
       flex={1}
@@ -48,7 +18,9 @@ function BottomNavigation(): JSX.Element {
     >
       <BottomNavigationItem>
         <MinimizeIcon width={24} height={24} color="#B5BBC9" />
-        <BottomNavigationText>Transactions</BottomNavigationText>
+        <Text fontSize={12} lineHeight="24px" mt={1} fontWeight="light" color="#78839C">
+          Transactions
+        </Text>
       </BottomNavigationItem>
 
       <BottomNavigationItem>
@@ -62,14 +34,18 @@ function BottomNavigation(): JSX.Element {
           mt="-34px"
           sx={{ borderRadius: '100px' }}
         >
-          <PlusIcon width={24} height={24} color="#FFFFFF" />
+          <PlusIcon width={24} height={24} color="#B5BBC9" />
         </Flex>
-        <BottomNavigationText>Deposit</BottomNavigationText>
+        <Text fontSize={12} lineHeight="24px" mt={1} fontWeight="light" color="#78839C">
+          Deposit
+        </Text>
       </BottomNavigationItem>
 
       <BottomNavigationItem>
         <BoxIcon width={24} height={24} color="#B5BBC9" />
-        <BottomNavigationText>Portfolio</BottomNavigationText>
+        <Text fontSize={12} lineHeight="24px" mt={1} fontWeight="light" color="#78839C">
+          Portfolio
+        </Text>
       </BottomNavigationItem>
     </Flex>
   )

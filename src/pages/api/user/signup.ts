@@ -1,17 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from 'bcrypt'
 
-import { INITIAL_AMOUNT_BALANCE, BRL_ID } from '@monts/constants'
-import prisma from '@monts/lib/prisma'
-import omit from '@monts/utils/omit'
+import { INITIAL_AMOUNT_BALANCE } from 'consts'
+import prisma from 'lib/prisma'
+import omit from 'utils/omit'
 
 async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {
-    const userReq: User = JSON.parse(req.body)
+    const { firstName, lastName, email, password }: User = JSON.parse(req.body)
 
-    const userFound = await prisma.user.findOne({
+    const userFound = await prisma.user.findFirst({
       where: {
-        email: userReq.email
+        email: email
       }
     })
 
@@ -20,11 +20,19 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
     }
 
     const salt = bcrypt.genSaltSync()
-    const hash = bcrypt.hashSync(userReq.password, salt)
+    const hash = bcrypt.hashSync(password, salt)
+
+    const defaultCoin = await prisma.currency.findFirst({
+      where: {
+        abbreviation: 'BTC'
+      }
+    })
 
     const savedUser = await prisma.user.create({
       data: {
-        ...userReq,
+        firstName,
+        lastName,
+        email,
         password: hash,
         wallet: {
           create: [
@@ -32,7 +40,7 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
               balance: INITIAL_AMOUNT_BALANCE,
               currency: {
                 connect: {
-                  id: BRL_ID
+                  id: defaultCoin?.id
                 }
               }
             }
@@ -43,7 +51,10 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
     res.status(200).json(omit(savedUser, ['password']))
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ error: 'Internal Error' })
+  } finally {
+    await prisma.$disconnect()
   }
 }
 

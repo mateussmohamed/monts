@@ -1,20 +1,20 @@
 module.exports = {
-  preset: 'ts-jest',
-  globals: {
-    'ts-jest': {
-      tsConfig: 'tsconfig.test.json'
-    }
-  },
-
-  collectCoverageFrom: ['<rootDir>/src/**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
-
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-tests.ts'],
-
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-
-  transformIgnorePatterns: ['/node_modules/'],
-
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/**/stories.tsx',
+    '!src/**/index.tsx',
+    '!src/**/mock.ts',
+    '!src/**/mock.tsx',
+    '!src/pages/**/*.tsx',
+    '!src/styles/**/*.ts',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   moduleNameMapper: {
-    '^@monts/(.*)$': '<rootDir>/src/$1'
+    '^styled-components':
+      '<rootDir>/node_modules/styled-components/dist/styled-components.browser.cjs.js'
   }
 }
