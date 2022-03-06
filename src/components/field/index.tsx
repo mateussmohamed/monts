@@ -26,14 +26,17 @@ const Field: FC<Props> = ({
   type = 'text',
   placeholder = 'Your text goes here'
 }) => {
-  const { register, errors } = useFormContext()
-  const hasError = errors[name] || false
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext()
+  const hasError = errors ? errors[name] : false
 
   return (
     <Box width={1} px={2} mb={3}>
       <Label htmlFor="name">{label}</Label>
       <Input
-        ref={register({ ...validate })}
+        {...register(name, { ...validate })}
         placeholder={placeholder}
         disabled={disabled}
         defaultValue={defaultValue}
