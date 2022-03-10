@@ -6,11 +6,11 @@ import { toast } from 'react-toastify'
 import { FieldValues } from 'react-hook-form'
 import { Flex, Text, Button } from 'rebass/styled-components'
 
-import AuthScreen from 'components/auth-layout'
-import Form from 'components/form'
-import Field from 'components/field'
+import AuthScreen from 'domains/business/wallet/components/auth-layout'
+import Form from 'domains/business/wallet/components/form'
+import Field from 'domains/business/wallet/components/field'
 
-import fetch from 'lib/fetch'
+import fetch from 'domains/shared/lib/helpers/fetch'
 
 const signUpSchema = yup.object().shape({
   firstName: yup.string().required('este campo é obrigatório..'),

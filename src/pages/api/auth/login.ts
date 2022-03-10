@@ -1,9 +1,9 @@
 import { NextApiResponse } from 'next'
 import bcrypt from 'bcrypt'
-import withSession from 'lib/with-session'
+import withSession from 'domains/business/auth/hocs/with-session'
 
-import prisma from 'lib/prisma'
-import omit from 'utils/omit'
+import prisma from 'domains/shared/lib/services/prisma'
+import omit from 'domains/shared/lib/helpers/omit'
 
 async function handle(req: NextApiRequestWithSession, res: NextApiResponse): Promise<void> {
   try {

@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { renderWithTheme } from 'domains/shared/lib/utils/tests/helpers'
 
 import TransactionStatus from '.'
 

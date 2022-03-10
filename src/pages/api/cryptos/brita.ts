@@ -1,9 +1,9 @@
 import { NextApiResponse, NextApiRequest } from 'next'
 import { format } from 'date-fns'
 
-import { OLINDA_API } from 'consts'
-import fetch from 'lib/fetch'
-import parseOlindaPayload from 'utils/parse-olinda-payload'
+import { OLINDA_API } from 'domains/shared/lib/constants'
+import fetch from 'domains/shared/lib/helpers/fetch'
+import parseOlindaPayload from 'domains/shared/lib/utils/parse-olinda-payload'
 
 async function handle(_req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {
