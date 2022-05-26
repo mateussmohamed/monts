@@ -1,23 +1,19 @@
 import React from 'react'
-import Link from 'next/link'
-import * as yup from 'yup'
-import { toast } from 'react-toastify'
 import { FieldValues } from 'react-hook-form'
-import { Flex, Text, Button } from 'rebass/styled-components'
-
+import { toast } from 'react-toastify'
+import Link from 'next/link'
 import fetch from 'domains/shared/lib/helpers/fetch'
 import useUser from 'domains/shared/lib/hooks/use-user'
-
-import Form from 'domains/business/wallet/components/form'
-import Field from 'domains/business/wallet/components/field'
-import AuthScreen from 'domains/business/wallet/components/auth-layout'
+import { Button, Flex, Text } from 'rebass/styled-components'
+import { AuthScreen, Field, Form } from 'ui/components'
+import * as yup from 'yup'
 
 const signUpSchema = yup.object().shape({
   email: yup.string().email('email inválido.').required('este campo é obrigatório..'),
   password: yup.string().required('este campo é obrigatório..')
 })
 
-function Login(): JSX.Element {
+function Login() {
   const { mutateUser } = useUser({
     redirectTo: '/wallet',
     redirectIfFound: true

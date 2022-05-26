@@ -1,4 +1,4 @@
-import theme from 'domains/ui/styles/theme'
+import theme from 'ui/styles/theme'
 
 type Theme = typeof theme
 
