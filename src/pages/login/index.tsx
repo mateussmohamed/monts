@@ -1,23 +1,19 @@
 import React from 'react'
-import Link from 'next/link'
-import * as yup from 'yup'
-import { toast } from 'react-toastify'
 import { FieldValues } from 'react-hook-form'
-import { Flex, Text, Button } from 'rebass/styled-components'
-
-import fetch from 'lib/fetch'
-import useUser from 'hooks/use-user'
-
-import Form from 'components/form'
-import Field from 'components/field'
-import AuthScreen from 'components/auth-layout'
+import { toast } from 'react-toastify'
+import Link from 'next/link'
+import fetch from 'domains/shared/lib/helpers/fetch'
+import useUser from 'domains/shared/lib/hooks/use-user'
+import { Button, Flex, Text } from 'rebass/styled-components'
+import { AuthScreen, Field, Form } from 'ui/components'
+import * as yup from 'yup'
 
 const signUpSchema = yup.object().shape({
   email: yup.string().email('email inválido.').required('este campo é obrigatório..'),
   password: yup.string().required('este campo é obrigatório..')
 })
 
-function Login(): JSX.Element {
+function Login() {
   const { mutateUser } = useUser({
     redirectTo: '/wallet',
     redirectIfFound: true
@@ -32,8 +28,8 @@ function Login(): JSX.Element {
           body: JSON.stringify(formData)
         })
       )
-    } catch (error) {
-      toast.error(error.message)
+    } catch (error: any) {
+      toast.error(error?.message)
     }
   }
 

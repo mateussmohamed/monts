@@ -5,7 +5,7 @@ import { Button } from 'rebass/styled-components'
 
 import { Flex, Box, Image, Text, Heading } from 'rebass/styled-components'
 
-function Welcome(): JSX.Element {
+function Welcome() {
   const router = useRouter()
 
   return (

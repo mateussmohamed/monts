@@ -2,12 +2,12 @@ import React from 'react'
 import { Heading } from 'rebass/styled-components'
 import { Button } from 'rebass/styled-components'
 
-import fetch from 'lib/fetch'
-import useUser from 'hooks/use-user'
+import fetch from 'domains/shared/lib/helpers/fetch'
+import useUser from 'domains/shared/lib/hooks/use-user'
 
-import BottomNavigation from 'components/bottom-navigation'
+import BottomNavigation from 'ui/components/bottom-navigation/bottom-navigation'
 
-function Dashboard(): JSX.Element {
+function Dashboard() {
   const { mutateUser } = useUser({ redirectTo: '/login' })
 
   async function handleLogout() {

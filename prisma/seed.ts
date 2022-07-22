@@ -1,10 +1,9 @@
-// import { PrismaClient } from '@prisma/client'
-const { PrismaClient } = require('@prisma/client')
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const db = new PrismaClient()
 
 async function main() {
-  const bitcoin = await prisma.currency.upsert({
+  const bitcoin = await db.currency.upsert({
     where: { abbreviation: 'BTC' },
     update: {},
     create: {
@@ -13,7 +12,7 @@ async function main() {
     }
   })
 
-  const brita = await prisma.currency.upsert({
+  const brita = await db.currency.upsert({
     where: { abbreviation: 'BRT' },
     update: {},
     create: {
@@ -22,7 +21,7 @@ async function main() {
     }
   })
 
-  const ethereum = await prisma.currency.upsert({
+  const ethereum = await db.currency.upsert({
     where: { abbreviation: 'ETH' },
     update: {},
     create: {
@@ -31,7 +30,7 @@ async function main() {
     }
   })
 
-  const litecoin = await prisma.currency.upsert({
+  const litecoin = await db.currency.upsert({
     where: { abbreviation: 'LTC' },
     update: {},
     create: {
@@ -40,7 +39,7 @@ async function main() {
     }
   })
 
-  const tether = await prisma.currency.upsert({
+  const tether = await db.currency.upsert({
     where: { abbreviation: 'USDT' },
     update: {},
     create: {
@@ -51,7 +50,6 @@ async function main() {
 
   console.log('Creating default currencies')
   console.log({ bitcoin, brita, ethereum, litecoin, tether })
-
 }
 
 main()
@@ -60,5 +58,5 @@ main()
     process.exit(1)
   })
   .finally(async () => {
-    await prisma.$disconnect()
+    await db.$disconnect()
   })

@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from 'bcrypt'
 
-import { INITIAL_AMOUNT_BALANCE } from 'consts'
-import prisma from 'lib/prisma'
-import omit from 'utils/omit'
+import { INITIAL_AMOUNT_BALANCE } from 'domains/shared/lib/constants'
+import prisma from 'domains/shared/lib/services/prisma'
+import omit from 'domains/shared/lib/helpers/omit'
 
 async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {

@@ -1,16 +1,12 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import * as yup from 'yup'
+import fetch from 'domains/shared/lib/helpers/fetch'
 import Link from 'next/link'
-import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
+import React from 'react'
 import { FieldValues } from 'react-hook-form'
-import { Flex, Text, Button } from 'rebass/styled-components'
-
-import AuthScreen from 'components/auth-layout'
-import Form from 'components/form'
-import Field from 'components/field'
-
-import fetch from 'lib/fetch'
+import { toast } from 'react-toastify'
+import { Button, Flex, Text } from 'rebass/styled-components'
+import { AuthScreen, Field, Form } from 'ui/components'
+import * as yup from 'yup'
 
 const signUpSchema = yup.object().shape({
   firstName: yup.string().required('este campo é obrigatório..'),
@@ -19,7 +15,7 @@ const signUpSchema = yup.object().shape({
   password: yup.string().required('este campo é obrigatório..')
 })
 
-function SignUp(): JSX.Element {
+function SignUp() {
   const router = useRouter()
 
   async function onSubmit(formData: FieldValues): Promise<void> {
@@ -28,8 +24,6 @@ function SignUp(): JSX.Element {
         method: 'POST',
         body: JSON.stringify(formData)
       })
-
-      console.log({ data })
 
       if (data) {
         toast.success('User registered')
