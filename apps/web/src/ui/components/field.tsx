@@ -1,7 +1,7 @@
-import { ErrorMessage } from '@hookform/error-message'
-import { Input, InputProps, Label } from '@rebass/forms/styled-components'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import { ErrorMessage } from '@hookform/error-message'
+import { Input, InputProps, Label } from '@rebass/forms/styled-components'
 import { Box, Text } from 'rebass/styled-components'
 
 interface FieldProps extends InputProps {

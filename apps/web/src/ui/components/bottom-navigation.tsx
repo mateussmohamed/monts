@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box as BoxIcon, Minimize2 as MinimizeIcon, Plus as PlusIcon } from 'react-feather'
 import { Flex, Text } from 'rebass/styled-components'
+
 import { BottomNavigationItem } from './bottom-navigation.styles'
 
 export function BottomNavigation() {

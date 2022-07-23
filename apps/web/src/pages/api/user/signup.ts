@@ -1,13 +1,16 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from 'bcrypt'
-
 import { INITIAL_AMOUNT_BALANCE } from 'domains/shared/lib/constants'
-import prisma from 'domains/shared/lib/services/prisma'
 import omit from 'domains/shared/lib/helpers/omit'
+import prisma from 'domains/shared/lib/services/prisma'
 
 async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   try {
     const { firstName, lastName, email, password }: User = JSON.parse(req.body)
+
+    if (!firstName || !lastName || !email || !password) {
+      throw Error('Invalid params')
+    }
 
     const userFound = await prisma.user.findFirst({
       where: {
@@ -34,6 +37,7 @@ async function handle(req: NextApiRequest, res: NextApiResponse): Promise<void> 
         lastName,
         email,
         password: hash,
+        securityPin: '',
         wallet: {
           create: [
             {

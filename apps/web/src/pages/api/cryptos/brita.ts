@@ -1,6 +1,5 @@
-import { NextApiResponse, NextApiRequest } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { format } from 'date-fns'
-
 import { OLINDA_API } from 'domains/shared/lib/constants'
 import fetch from 'domains/shared/lib/helpers/fetch'
 import parseOlindaPayload from 'domains/shared/lib/utils/parse-olinda-payload'

@@ -28,8 +28,10 @@ function Login() {
           body: JSON.stringify(formData)
         })
       )
-    } catch (error: any) {
-      toast.error(error?.message)
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error?.message)
+      }
     }
   }
 

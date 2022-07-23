@@ -1,15 +1,14 @@
-import 'react-toastify/dist/ReactToastify.css'
-
 import React from 'react'
-import Head from 'next/head'
-import { AppProps } from 'next/app'
 import { ToastContainer } from 'react-toastify'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import fetch from 'domains/shared/lib/helpers/fetch'
 import { ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
-
-import theme from 'ui/styles/theme'
 import GlobalStyle from 'ui/styles/global'
-import fetch from 'domains/shared/lib/helpers/fetch'
+import theme from 'ui/styles/theme'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 function App({ Component, pageProps }: AppProps) {
   return (

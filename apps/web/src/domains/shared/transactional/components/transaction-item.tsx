@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box, Text } from 'rebass/styled-components'
+import { Box, Flex, Text } from 'rebass/styled-components'
 
 type TransactionKinds = 'withdrawn' | 'deposited' | 'sent'
 

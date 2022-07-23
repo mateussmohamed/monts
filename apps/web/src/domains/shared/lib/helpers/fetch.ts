@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-export default async function fetcher<T>(url: string, options?: T): Promise<Record<string, Record<string, T>>> {
+export default async function fetcher<T>(url: string, options?: T) {
   try {
     const response = await fetch(url, options)
     const data = await response.json()
@@ -14,11 +14,8 @@ export default async function fetcher<T>(url: string, options?: T): Promise<Reco
 
     throw errorInstance
   } catch (error) {
-    const _error = error
-    if (!_error?.data) {
-      _error.data = { message: _error?.message }
+    if (error instanceof Error) {
+      throw error
     }
-
-    throw _error
   }
 }

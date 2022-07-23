@@ -1,5 +1,4 @@
 import { NextApiResponse } from 'next'
-
 import { MERCADO_BITCOIN_API } from 'domains/shared/lib/constants'
 import fetch from 'domains/shared/lib/helpers/fetch'
 

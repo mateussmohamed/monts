@@ -1,9 +1,9 @@
-import fetch from 'domains/shared/lib/helpers/fetch'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import fetch from 'domains/shared/lib/helpers/fetch'
 import { Button, Flex, Text } from 'rebass/styled-components'
 import { AuthScreen, Field, Form } from 'ui/components'
 import * as yup from 'yup'
@@ -31,7 +31,9 @@ function SignUp() {
         router.push('/login')
       }
     } catch (error) {
-      toast.error(error.message)
+      if (error instanceof Error) {
+        toast.error(error.message)
+      }
     }
   }
 
