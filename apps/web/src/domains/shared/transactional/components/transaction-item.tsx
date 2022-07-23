@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Flex, Text } from 'rebass/styled-components'
 
 type TransactionKinds = 'withdrawn' | 'deposited' | 'sent'
@@ -10,7 +9,7 @@ export type TransactionItemProps = {
   date: string
 }
 
-export function TransactionItem({ kind, currencyValue, cryptoValue, date }: TransactionItemProps) {
+export const TransactionItem = ({ kind, currencyValue, cryptoValue, date }: TransactionItemProps) => {
   return (
     <Flex
       flex={1}

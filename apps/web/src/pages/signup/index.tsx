@@ -1,4 +1,3 @@
-import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import Link from 'next/link'
@@ -15,7 +14,7 @@ const signUpSchema = yup.object().shape({
   password: yup.string().required('este campo é obrigatório..')
 })
 
-function SignUp() {
+const SignUp = () => {
   const router = useRouter()
 
   async function onSubmit(formData: FieldValues): Promise<void> {

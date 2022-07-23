@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import bcrypt from 'bcrypt'
+import * as bcrypt from 'bcrypt'
 import { INITIAL_AMOUNT_BALANCE } from 'domains/shared/lib/constants'
 import omit from 'domains/shared/lib/helpers/omit'
 import prisma from 'domains/shared/lib/services/prisma'

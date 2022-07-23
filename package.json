@@ -8,20 +8,20 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "dev": "turbo run dev --no-cache --parallel --continue",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
     "test": "turbo run test"
   },
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
+  "packageManager": "yarn@1.22.19",
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
-  },
-  "dependencies": {},
-  "packageManager": "yarn@1.22.19"
+  }
 }

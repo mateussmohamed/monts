@@ -1,4 +1,3 @@
-import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import { Input, InputProps, Label } from '@rebass/forms/styled-components'
@@ -16,7 +15,7 @@ interface FieldProps extends InputProps {
   validate?: Record<string, unknown>
 }
 
-export function Field({
+export const Field = ({
   name,
   label,
   disabled,
@@ -25,7 +24,7 @@ export function Field({
   defaultValue = '',
   type = 'text',
   placeholder = 'Your text goes here'
-}: FieldProps) {
+}: FieldProps) => {
   const {
     register,
     formState: { errors }

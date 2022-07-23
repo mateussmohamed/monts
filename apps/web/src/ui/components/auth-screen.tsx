@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Flex, Heading, Image } from 'rebass/styled-components'
 
 type AuthScreenProps = {
@@ -8,7 +7,7 @@ type AuthScreenProps = {
   loading?: boolean
 }
 
-export function AuthScreen({ children, title, image }: AuthScreenProps) {
+export const AuthScreen = ({ children, title, image }: AuthScreenProps) => {
   return (
     <Box bg="lightBlue" height="100vh">
       <Box width={1} maxWidth={512} mx="auto" pt={20}>
@@ -16,7 +15,7 @@ export function AuthScreen({ children, title, image }: AuthScreenProps) {
           <Heading color="midnightBlue" textAlign="center" fontWeight="semi" mb={90} fontSize={[26, 32]}>
             {title}
           </Heading>
-          <Image src={image} width={310} />
+          <Image src={image} width={310} alt="login image" />
         </Flex>
 
         <Box flex={1} width={1} pt={20} pb={60} variant="containerForm">
