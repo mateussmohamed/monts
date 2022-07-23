@@ -1,32 +1,34 @@
-{
-  "env": {
-    "browser": true,
-    "es2020": true,
-    "jest": true,
-    "node": true
+module.exports = {
+  root: true,
+  extends: ["custom"],
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true,
+    node: true,
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "ecmaVersion": 11,
-    "sourceType": "module"
+    ecmaVersion: 11,
+    sourceType: "module",
   },
-  "plugins": ["simple-import-sort", "react", "@typescript-eslint", "react-hooks"],
-  "rules": {
+  plugins: ["simple-import-sort", "react", "@typescript-eslint", "react-hooks"],
+  rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
@@ -37,9 +39,9 @@
     "simple-import-sort/imports": [
       "warn",
       {
-        "groups": [
+        groups: [
           [
-            "^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)"
+            "^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)",
           ],
           // Packages. `react` related packages come first.
           ["^react", "^next", "^@?\\w"],
@@ -52,9 +54,9 @@
           // Other relative imports. Put same-folder imports and `.` last.
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
           // Style imports.
-          ["^.+\\.s?css$", "^.+\\.styles$"]
-        ]
-      }
-    ]
-  }
-}
+          ["^.+\\.s?css$", "^.+\\.styles$"],
+        ],
+      },
+    ],
+  },
+};
