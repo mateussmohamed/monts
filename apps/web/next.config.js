@@ -3,15 +3,15 @@
  */
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withTM = require('next-transpile-modules')(['ui']);
+const withTM = require('next-transpile-modules')(['ui'])
 
 const nextConfig = withTM({
   reactStrictMode: true,
   poweredByHeader: false,
   swcMinify: true,
   compiler: {
-    styledComponents: true,
-  },
-});
+    styledComponents: true
+  }
+})
 
-module.exports = nextConfig;
+module.exports = nextConfig
