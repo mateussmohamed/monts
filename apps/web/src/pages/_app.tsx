@@ -1,4 +1,3 @@
-import React from 'react'
 import { ToastContainer } from 'react-toastify'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -10,7 +9,7 @@ import theme from 'ui/styles/theme'
 
 import 'react-toastify/dist/ReactToastify.css'
 
-function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>

@@ -1,10 +1,8 @@
-import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Button } from 'rebass/styled-components'
-import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components'
+import { Box, Button, Flex, Heading, Image, Text } from 'rebass/styled-components'
 
-function Welcome() {
+const Welcome = () => {
   const router = useRouter()
 
   return (
@@ -20,7 +18,7 @@ function Welcome() {
     >
       <Box>
         <Flex flexDirection="column" alignItems="center">
-          <Image src="/static/images/logo.svg" width={120} mb={30} />
+          <Image src="/static/images/logo.svg" width={120} mb={30} alt="welcome message" />
           <Text color="white" textAlign="center" fontWeight="normal" opacity={0.5} fontSize={[18, 24]}>
             Bem vindo a
           </Text>

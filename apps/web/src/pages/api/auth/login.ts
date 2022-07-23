@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next'
-import bcrypt from 'bcrypt'
+import * as bcrypt from 'bcrypt'
 import omit from 'domains/shared/lib/helpers/omit'
 import withSession from 'domains/shared/lib/hocs/with-session'
 import prisma from 'domains/shared/lib/services/prisma'

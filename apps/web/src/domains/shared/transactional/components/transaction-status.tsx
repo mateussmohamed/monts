@@ -17,7 +17,7 @@ const statusIcons = {
   pending: <Icons.PendingIcon />
 }
 
-export function TransactionStatus({ status = 'pending' }: TransactionStatusProps) {
+export const TransactionStatus = ({ status = 'pending' }: TransactionStatusProps) => {
   return (
     <Flex width={60} height={60}>
       {statusIcons[status]}

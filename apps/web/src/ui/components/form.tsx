@@ -1,4 +1,3 @@
-import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -9,7 +8,7 @@ type FormProps = {
   validation: yup.AnyObjectSchema
 }
 
-export function Form({ children, onSubmit, validation }: FormProps) {
+export const Form = ({ children, onSubmit, validation }: FormProps) => {
   const methods = useForm({
     resolver: yupResolver(validation)
   })

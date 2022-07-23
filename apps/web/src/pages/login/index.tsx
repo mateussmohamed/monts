@@ -1,4 +1,3 @@
-import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import Link from 'next/link'
@@ -13,7 +12,7 @@ const signUpSchema = yup.object().shape({
   password: yup.string().required('este campo é obrigatório..')
 })
 
-function Login() {
+const Login = () => {
   const { mutateUser } = useUser({
     redirectTo: '/wallet',
     redirectIfFound: true
