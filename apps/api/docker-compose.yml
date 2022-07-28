@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  monts-api-db:
+    image: postgres:13
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - monts
+  monts-api-test-db:
+    image: postgres:13
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: monts_api
+      POSTGRES_PASSWORD: monts_api123
+      POSTGRES_DB: monts_api
+    networks:
+      - monts
+networks:
+  monts:
