@@ -2,31 +2,21 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { join } from 'path'
 
-import configuration from './common/config/configuration'
-import { upperDirectiveTransformer } from './common/directives/upper-case.directive'
-
+import config from './common/config/config'
 import { UsersModule } from './users/users.module'
-import { WalletsModule } from './wallets/wallets.module';
+import { GqlConfigService } from './graphql-config-service'
 
 @Module({
   imports: [
-    UsersModule,
-    ConfigModule.forRoot({
-      load: [configuration]
-    }),
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    ConfigModule.forRoot({ isGlobal: true, load: [config] }),
+
+    GraphQLModule.forRootAsync<ApolloDriverConfig>({
       driver: ApolloDriver,
-      playground: true,
-      transformSchema: (schema) => upperDirectiveTransformer(schema, 'upper'),
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/graphql.ts'),
-        outputAs: 'class'
-      }
+      useClass: GqlConfigService
     }),
-    WalletsModule
+
+    UsersModule
   ]
 })
 export class AppModule {}
