@@ -7,6 +7,11 @@ input CreateUserInput {
   exampleField: Int!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   removeUser(id: Int!): User!
@@ -25,6 +30,19 @@ input UpdateUserInput {
 }
 
 type User {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Identifies the date and time when the object was created."""
+  createdAt: DateTime!
+
+  """user email"""
+  email: String!
+
+  """user firstName"""
+  firstName: String!
+  id: ID!
+
+  """user lastName"""
+  lastName: String!
+
+  """Identifies the date and time when the object was last updated."""
+  updatedAt: DateTime!
 }
