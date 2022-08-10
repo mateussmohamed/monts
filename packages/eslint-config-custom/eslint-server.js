@@ -30,7 +30,7 @@ module.exports = {
           // Packages. `react` related packages come first.
           ['^@nestjs', '^@?\\w'],
           // Internal packages.
-          // ['^(~/domains|~/ui|~/types)(/.*|$)'],
+          // ['^(src)(/.*|$)'],
           // Side effect imports.
           ['^\\u0000'],
           // Parent imports. Put `..` last.
