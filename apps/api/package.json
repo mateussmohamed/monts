@@ -18,7 +18,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:migrate": "docker-compose -f docker-compose.migrate.yml up -d",
+    "docker:db": "docker-compose -f docker-compose.db.yml up -d",
+    "docker:seed": "docker exec -it nest-api yarn seed",
+    "docker": "docker-compose up -d",
+    "docker:build": "docker-compose build"
   },
   "dependencies": {
     "@nestjs/apollo": "^10.0.19",
@@ -49,7 +54,6 @@
     "ts-jest": "28.0.5",
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
-    "tsconfig-paths": "4.0.0",
     "tsconfig": "*",
     "typescript": "^4.3.5"
   },

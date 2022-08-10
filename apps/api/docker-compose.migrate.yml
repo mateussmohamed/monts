@@ -1,22 +1,21 @@
 version: '3.8'
 services:
-  monts-api:
-    container_name: monts-api
+  prisma-migrate:
+    container_name: prisma-migrate
     build:
-      context: .
+      context: prisma
       dockerfile: Dockerfile
-    ports:
-      - 8000:8000
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
     depends_on:
       - postgres
-    env_file: .env
 
   postgres:
     image: postgres:13
     container_name: postgres
     restart: always
     ports:
-      - 5432:5432
+      - '5432:5432'
     env_file: .env
     volumes:
       - postgres:/var/lib/postgresql/data
