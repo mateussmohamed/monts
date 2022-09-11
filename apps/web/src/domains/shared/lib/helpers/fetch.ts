@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 
 export default async function fetcher<T>(url: string, options?: T) {
   try {
-    const response = await fetch(url, options)
+    const response = await fetch(url, options as any)
     const data = await response.json()
 
     if (response.ok) {
