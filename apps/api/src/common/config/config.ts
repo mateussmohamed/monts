@@ -12,6 +12,11 @@ const config: Config = {
     debug: true,
     schemaDestination: './src/schema.graphql',
     sortSchema: true
+  },
+  security: {
+    expiresIn: '2m',
+    refreshIn: '7d',
+    bcryptSaltOrRound: 10
   }
 }
 

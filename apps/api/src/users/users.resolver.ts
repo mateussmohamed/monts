@@ -11,6 +11,16 @@ export class UsersResolver {
 
   @Query(() => User, { name: 'me' })
   async me(@UserEntity() user: User): Promise<User> {
-    return user
+    return (
+      user || {
+        id: '1',
+        email: 'mateus@email.com',
+        firstName: 'mateus',
+        lastName: 'santana',
+        password: '1234',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    )
   }
 }
