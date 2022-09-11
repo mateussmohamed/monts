@@ -64,11 +64,11 @@ export class AuthService {
     return this.generateTokens({ userId: user.id })
   }
 
-  async validateUser(email: string): Promise<User> {
-    const user = await this.prisma.user.findUnique({ where: { email } })
+  async validateUser(userId: string): Promise<User> {
+    const user = await this.prisma.user.findUnique({ where: { id: userId } })
 
     if (!user) {
-      throw new NotFoundException(`No user found for email: ${email}`)
+      throw new NotFoundException(`No user found for userId: ${userId}`)
     }
 
     return user
