@@ -31,16 +31,14 @@ export class AuthService {
     try {
       const user = await this.prisma.user.create({
         data: {
-          email: payload.email,
+          email: payload.email.toLowerCase(),
           firstName: payload.firstname,
           lastName: payload.lastname,
           password: hashedPassword
         }
       })
 
-      return this.generateTokens({
-        userId: user.id
-      })
+      return this.generateTokens({ userId: user.id })
     } catch (e) {
       if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
         throw new ConflictException(`Email ${payload.email} already used.`)
@@ -63,9 +61,7 @@ export class AuthService {
       throw new BadRequestException('Invalid password')
     }
 
-    return this.generateTokens({
-      userId: user.id
-    })
+    return this.generateTokens({ userId: user.id })
   }
 
   async validateUser(email: string): Promise<User> {
@@ -80,6 +76,7 @@ export class AuthService {
 
   getUserFromToken(token: string): Promise<User> {
     const id = this.jwtService.decode(token)['userId']
+
     return this.prisma.user.findUnique({ where: { id } })
   }
 
@@ -96,6 +93,7 @@ export class AuthService {
 
   private generateRefreshToken(payload: { userId: string }): string {
     const securityConfig = this.configService.get<SecurityConfig>('security')
+
     return this.jwtService.sign(payload, {
       secret: this.configService.get('JWT_REFRESH_SECRET'),
       expiresIn: securityConfig.refreshIn
@@ -108,9 +106,7 @@ export class AuthService {
         secret: this.configService.get('JWT_REFRESH_SECRET')
       })
 
-      return this.generateTokens({
-        userId
-      })
+      return this.generateTokens({ userId })
     } catch (e) {
       throw new UnauthorizedException()
     }
