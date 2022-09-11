@@ -1,8 +1,8 @@
 import fetch from 'node-fetch'
 
-export default async function fetcher<T>(url: string, options?: T) {
+export default async function fetcher(url: string, opts?: Record<string, unknown>) {
   try {
-    const response = await fetch(url, options)
+    const response = await fetch(url, opts)
     const data = await response.json()
 
     if (response.ok) {

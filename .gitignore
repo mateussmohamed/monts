@@ -38,3 +38,6 @@ dist/**
 
 #postgres docker folder
 data
+
+#misc
+dist/
