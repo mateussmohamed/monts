@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "lib": ["es2015.promise"],
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
